@@ -26,15 +26,21 @@ var Employee = /** @class */ (function () {
         return this.FirstName + " " + this.LastName + " is leavng in " + this.State + " , " + this.Zipcode;
     };
     Employee.prototype.printDetails = function () {
-        return this.FirstName + " " + this.LastName + " is " + this.Age + " years old. \nShe lives in " +
-            this.State + "," + this.Zipcode + ".\n She is " + this.Occupation + ".";
+        return this.FirstName + " " + this.LastName + " is " + this.Age + " years old. <br>She lives in " +
+            this.State + "," + this.Zipcode + "." + " <br>She is " + this.Occupation + ".";
     };
     // method to calculate weekly wages//
     Employee.prototype.calculateWeekWage = function (hours) {
-        return hours * this.HourlyWage;
+        if (hours) {
+            return this.weeklyIncome = hours * this.HourlyWage;
+        }
+        else {
+            return this.weeklyIncome = 40 * this.HourlyWage;
+        }
+        return this.weeklyIncome;
     };
     Employee.prototype.printIncome = function () {
-        return this.FirstName + " has weekly income  " + this.calculateWeekWage(40) + " $ .";
+        return this.FirstName + " has weekly income  " + this.calculateWeekWage(35) + " $ .";
     };
     // getfullname//
     Employee.prototype.getFullName = function () {
@@ -48,14 +54,11 @@ var Employee = /** @class */ (function () {
             degrees[_i] = arguments[_i];
         }
         (_a = this.degrees).push.apply(_a, degrees);
-        //  for (var i = 0; i < degrees.length; i++) {
-        //console.log(degrees[i]);
-        //  }
         return "Degrees : " + this.degrees.join(",");
     };
     // method to implement //
     Employee.createEmp = function (Options) {
-        return new Employee(Options.FirstName, Options.LastName);
+        return new Employee("New Employee : " + Options.FirstName, Options.LastName);
     };
     return Employee;
 }());

@@ -57,15 +57,20 @@ class Employee implements IEmployee {
         return this.FirstName + " " + this.LastName + " is leavng in " + this.State + " , " + this.Zipcode;
     }
     printDetails(): String {
-        return this.FirstName + " " + this.LastName + " is " + this.Age + " years old. \nShe lives in " +
-            this.State + "," + this.Zipcode + ".\n She is " + this.Occupation + ".";
+        return this.FirstName + " " + this.LastName + " is " + this.Age + " years old. <br>She lives in " +
+            this.State + "," + this.Zipcode + "." + " <br>She is " + this.Occupation + ".";
     }
     // method to calculate weekly wages//
     calculateWeekWage(hours: number) {
-        return hours * this.HourlyWage;
+        if (hours) {
+            return this.weeklyIncome = hours * this.HourlyWage;
+        } else {
+            return this.weeklyIncome = 40 * this.HourlyWage;
+        }
+        return this.weeklyIncome;
     }
     printIncome(): String {
-        return this.FirstName + " has weekly income  " + this.calculateWeekWage(40) + " $ .";
+        return this.FirstName + " has weekly income  " + this.calculateWeekWage(35) + " $ .";
     }
     // getfullname//
     getFullName(): string {
